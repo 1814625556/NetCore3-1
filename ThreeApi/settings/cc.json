@@ -1,0 +1,12 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=_CHANGE_ME;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "Age": 28,
+  "Name": "cc",
+  "NickName": "small pig",
+  "Students": {
+    "Number": 33,
+    "Grades": "9(3)"
+  }
+}
