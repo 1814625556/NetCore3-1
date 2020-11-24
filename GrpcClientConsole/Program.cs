@@ -12,9 +12,9 @@ namespace GrpcClientConsole
         static async Task Main(string[] args)
         {
             var channel = GrpcChannel.ForAddress("https://localhost:16666");
-            var client = new Example.ExampleClient(channel);
-            var message = client.SayHello(new ExampleRequest());
-            Console.WriteLine(message.Result);
+            var client = new Greeter.GreeterClient(channel);
+            var message = client.SayHello(new HelloRequest());
+            Console.WriteLine(message.Message);
             
             //ClientStreamCall(channel);
             //ServeStreamCall(channel);
