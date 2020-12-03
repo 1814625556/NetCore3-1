@@ -1,0 +1,57 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title>ajax cross domain demo</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+$(document).ready(function(){
+	$("button").click(function(){
+   //     $.ajax({
+   //         url:"http://localhost:5000/api/weatherforecast",
+		 //   success:function(result){
+			//$("#div1").html(result);
+   //         }
+   //     });
+        $.ajax({
+            type: "get", //提交方式  
+            //dataType: "json", //返回数据格式为json  
+            url: "http://localhost:5000/api/weatherforecast", //模拟web服务，提交到方法  
+            //async: true, //异步传输  
+            xhrFields: {
+                withcredentials: true //允许跨域策略  
+            },
+            //contentType: "application/json;charset=utf-8", //body方式提交参数  
+            //data: JSON.stringify(parameters), //后台参数加上FromBody  
+            //contentType: "application/x-www-form-urlencoded",//form方式提交参数  
+            //data:parameters,//后台参数加上FromForm  
+            timeout: 10000, //允许最长等待时间,这设置为十秒  
+            beforeSend: function () {
+                //do something.      
+                //打开loading      
+
+            },
+            complete: function (xhr, status) {
+                //do something.      
+                //关闭loading      
+                console.log("complete...");
+            },
+            success: function (result, status, xhr) {
+                $("#div1").html(result);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                //do error thing  
+                console.log("error...");
+            }
+        });  
+	});
+});
+    </script>
+</head>
+<body>
+
+    <div id="div1"><h2>使用 jQuery AJAX 修改文本内容</h2></div>
+    <button>获取其他内容</button>
+
+</body>
+</html>
