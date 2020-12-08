@@ -20,7 +20,7 @@ Migrations/
 #dbfile
 *.db
 *.db-shm
-*/db-wal
+*.db-wal
 
 # Build results
 [Dd]ebug/
