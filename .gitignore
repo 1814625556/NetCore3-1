@@ -18,7 +18,9 @@ mono_crash.*
 #migration
 Migrations/
 #dbfile
-db.*
+*.db
+*.db-shm
+*/db-wal
 
 # Build results
 [Dd]ebug/
