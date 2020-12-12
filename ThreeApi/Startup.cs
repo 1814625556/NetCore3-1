@@ -87,20 +87,24 @@ namespace ThreeApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-            
-            //这里如果出现error的时候可以记录日志
-            app.UseExceptionHandler(appBuilder =>
+            if (env.IsDevelopment())
             {
-                appBuilder.Run(async context =>
+                //这里表示如果某个action throw exception ,这里会返回 报错信息，一般使用在开发环境中
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                //这里如果出现error的时候可以记录日志
+                app.UseExceptionHandler(appBuilder =>
                 {
-                    context.Response.StatusCode = 500;
-                    await context.Response.WriteAsync("UseExceptionHandler Unexpected Error!");
+                    appBuilder.Run(async context =>
+                    {
+                        context.Response.StatusCode = 500;
+                        await context.Response.WriteAsync("UseExceptionHandler Unexpected Error!");
+                    });
                 });
-            });
+            }
+            
 
             app.UseStaticFiles();
 

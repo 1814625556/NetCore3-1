@@ -23,7 +23,6 @@ namespace ThreeApi
                 {
                     var dbContext = scope.ServiceProvider.GetService<RoutineDbContext>();
                     bool flag = dbContext.Database.EnsureCreated();
-                    dbContext.Database.Migrate();
                     logger.LogWarning($"Database Migration Success! {flag}");
                 }
                 catch (Exception e)
@@ -43,7 +42,7 @@ namespace ThreeApi
             })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseUrls("http://localhost:5000");
                 });
     }
 }

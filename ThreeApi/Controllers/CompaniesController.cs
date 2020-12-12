@@ -15,8 +15,9 @@ using ThreeApi.Services;
 
 namespace ThreeApi.Controllers
 {
+    //这里必须做一下说明：如果配置了 [ApiController] ,后面必须使用属性路由
     [ApiController]
-    [Route("api/companies")]
+    [Route("api/[controller]")]
     public class CompaniesController : ControllerBase
     {
         private readonly IOptions<StudentOptions> _studentOption;
