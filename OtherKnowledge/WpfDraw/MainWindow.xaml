@@ -1,0 +1,102 @@
+﻿<Window x:Class="WpfDraw.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDraw"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+
+    <Window.Resources>
+        <Canvas Width="1000" Height="1000" x:Key="LockCanvas">
+            <Path Fill="#79f3ff">
+                <Path.Data>
+                    <PathGeometry Figures="M810.666667 362.666667h-64V298.666667c0-129.28-105.386667-234.666667-234.666667-234.666667S277.333333 169.386667 277.333333 298.666667v64H213.333333A106.666667 106.666667 0 0 0 106.666667 469.333333v384A106.666667 106.666667 0 0 0 213.333333 960h597.333334a106.666667 106.666667 0 0 0 106.666666-106.666667v-384A106.666667 106.666667 0 0 0 810.666667 362.666667zM320 298.666667c0-105.813333 86.186667-192 192-192s192 86.186667 192 192v64h-384V298.666667z m554.666667 554.666666c0 35.413333-28.586667 64-64 64H213.333333c-35.413333 0-64-28.586667-64-64v-384c0-35.413333 28.586667-64 64-64h597.333334c35.413333 0 64 28.586667 64 64v384z"></PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path Fill="#79f3ff">
+                <Path.Data>
+                    <PathGeometry Figures="M512 533.333333c-11.946667 0-21.333333 9.386667-21.333333 21.333334v213.333333c0 11.946667 9.386667 21.333333 21.333333 21.333333s21.333333-9.386667 21.333333-21.333333v-213.333333c0-11.946667-9.386667-21.333333-21.333333-21.333334z"></PathGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+
+        <Canvas Width="500" Height="500" x:Key="LockIcon">
+            <Path Fill="#79f3ff">
+                <Path.Data>
+                    <PathGeometry Figures="M153.6 469.312v469.376h716.8V469.312H153.6zM64 384h896v640H64V384z m403.2 329.92c-26.752-14.72-44.8-42.304-44.8-73.92 0-47.104 40.128-85.312 89.6-85.312 49.472 0 89.6 38.208 89.6 85.312 0 31.616-18.048 59.136-44.8 73.92v115.968a44.8 44.8 0 0 1-89.6 0v-115.968zM332.8 384h358.4V256c0-94.272-80.256-170.688-179.2-170.688-98.944 0-179.2 76.416-179.2 170.688v128zM512 0c148.48 0 268.8 114.56 268.8 256v128H243.2V256c0-141.44 120.32-256 268.8-256z"></PathGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+
+        <Canvas Width="500" Height="500" x:Key="UnLockIcon">
+            <Path Fill="#79f3ff">
+                <Path.Data>
+                    <PathGeometry Figures="M467.2 713.92c-26.752-14.72-44.8-42.304-44.8-73.92 0-47.104 40.128-85.312 89.6-85.312 49.472 0 89.6 38.208 89.6 85.312 0 31.616-18.048 59.136-44.8 73.92v115.968a44.8 44.8 0 0 1-89.6 0v-115.968zM243.2 384h448V256c0-94.272-80.256-170.688-179.2-170.688-98.944 0-179.2 76.416-179.2 170.688H243.2c0-141.44 120.32-256 268.8-256 148.48 0 268.8 114.56 268.8 256v128H960v640H64V384h179.2zM153.6 469.312v469.376h716.8V469.312H153.6z"></PathGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+
+        <Canvas Width="500" Height="500" x:Key="ShutDownIcon">
+            <Path Fill="#79f3ff">
+                <Path.Data>
+                    <PathGeometry Figures="M512 960A392 392 0 0 1 400 192.448v119.168A279.872 279.872 0 0 0 512 848a280 280 0 0 0 280-280A280 280 0 0 0 624 311.616V192.448A391.872 391.872 0 0 1 512 960zM456 120a56 56 0 0 1 112 0v448h-112v-448z"></PathGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+
+        <!--M512 960A392 392 0 0 1 400 192.448v119.168A279.872 279.872 0 0 0 512 848a280 280 0 0 0 280-280A280 280 0 0 0 624 311.616V192.448A391.872 391.872 0 0 1 512 960zM456 120a56 56 0 0 1 112 0v448h-112v-448z-->
+
+    </Window.Resources>
+    <Grid Background="#325c6d">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Row="1" Grid.Column="0">
+            <Rectangle Margin="100,10" Stroke="#7ab9c3" StrokeThickness="3" 
+                       Height="500" Width="500"></Rectangle>
+            <Viewbox Canvas.Left="160" Canvas.Top="60">
+                <ContentControl Content="{StaticResource LockCanvas}">
+                    <ContentControl.LayoutTransform>
+                        <ScaleTransform ScaleX="0.35" ScaleY="0.35"></ScaleTransform>
+                    </ContentControl.LayoutTransform>
+                </ContentControl>
+            </Viewbox>
+        </Canvas>
+        <Canvas Grid.Row="0" Grid.Column="0">
+            <Viewbox>
+                <ContentControl Content="{StaticResource LockIcon}">
+                    <ContentControl.LayoutTransform>
+                        <ScaleTransform ScaleX="0.35" ScaleY="0.35"></ScaleTransform>
+                    </ContentControl.LayoutTransform>
+                </ContentControl>
+            </Viewbox>
+        </Canvas>
+
+        <Canvas Grid.Column="1" Grid.Row="0">
+            <Viewbox>
+                <ContentControl Content="{StaticResource ShutDownIcon}">
+                    <ContentControl.LayoutTransform>
+                        <ScaleTransform ScaleX="0.35" ScaleY="0.35"></ScaleTransform>
+                    </ContentControl.LayoutTransform>
+                </ContentControl>
+            </Viewbox>
+        </Canvas>
+
+        <Canvas Grid.Row="1" Grid.Column="1">
+            <Viewbox>
+                <ContentControl Content="{StaticResource UnLockIcon}">
+                    <ContentControl.LayoutTransform>
+                        <ScaleTransform ScaleX="0.35" ScaleY="0.35"></ScaleTransform>
+                    </ContentControl.LayoutTransform>
+                </ContentControl>
+            </Viewbox>
+        </Canvas>
+
+    </Grid>
+</Window>
