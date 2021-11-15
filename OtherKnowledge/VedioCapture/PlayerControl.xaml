@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="VedioCapture.PlayerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VedioCapture"
+             mc:Ignorable="d"
+             d:DesignHeight="800" d:DesignWidth="800">
+    <Grid>
+        <MediaElement x:Name="Gmedia" Width="800" Height="800" Stretch="Fill" MouseDown="GetNeedlePosition"></MediaElement>
+        <Image Width="800" Height="800" x:Name="ActualNeedle" IsHitTestVisible="False" />
+
+        <!--TooBar-->
+        <StackPanel Margin="0,720,0,15" Panel.ZIndex="100" Opacity="0.9" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Image Source="Resources/Images/pause2.png" MouseDown="PlayOrPause" Margin="0,0,80,0"></Image>
+            <Image Source="Resources/Images/forward2.png" MouseDown="backClick">
+                <Image.LayoutTransform>
+                    <RotateTransform Angle="180"></RotateTransform>
+                </Image.LayoutTransform>
+            </Image>
+            <TextBlock x:Name="DynamicTimeRecordText" FontSize="25" Text="00:00" Margin="30,0,30,0" VerticalAlignment="Center" Foreground="#79f3ff"></TextBlock>
+            <Image Source="Resources/Images/forward2.png" MouseDown="forwardClick"></Image>
+            <TextBlock x:Name="TotalTime" FontSize="15" Text="00:00" Margin="30,0,30,10" VerticalAlignment="Bottom" Foreground="#79f6ff"></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="VedioCapture.VedioControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VedioCapture"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Image Opacity="0.8" Source="Resources/Images/player.png"  x:Name="GmediaPlayer" MouseDown="Play" Panel.ZIndex="15"  
+               Width="200" Height="200" Stretch="Fill">
+        </Image>
+
+        <MediaElement Visibility="Visible" x:Name="Gmedia" Width="780" Height="440" MouseDown="Pause"></MediaElement>
+        <Grid Visibility="Visible" Grid.Row="0" Panel.ZIndex="10" Margin="10,415,10,0" Opacity="0.3" Background="#0e1c22">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="sliderGmedia" Grid.Column="0"
+            HorizontalAlignment="Left" 
+            Margin="50,0,0,0"
+            Width="600" Height="18"/>
+            <TextBlock Grid.Column="1" Foreground="#79f3ff" Text="10:00" x:Name="VedioTime" FontSize="17" Margin="10,0"></TextBlock>
+        </Grid>
+        <Grid Name="Mask" Background="Black" Opacity="0.3" Panel.ZIndex="10" Visibility="{Binding ElementName=GmediaPlayer ,Path=Visibility}">
+            
+        </Grid>
+    </Grid>
+</UserControl>

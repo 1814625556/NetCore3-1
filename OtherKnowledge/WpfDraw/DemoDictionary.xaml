@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--这里按照格式写资源文件-->
+    <Canvas Width="1000" Height="1000" x:Key="LockCanvas">
+        <Path Fill="#79f3ff">
+            <Path.Data>
+                <PathGeometry Figures="M764 440h-44V271.92C720 157.08 626.85 64 512 64s-208 93.08-208 207.92V440h-44c-55 0-100 45-100 100v320c0 55 45 100 100 100h504c55 0 100-45 100-100V540c0-55-45-100-100-100zM376 272a136 136 0 0 1 272 0v168H376z m416 566a50.15 50.15 0 0 1-50 50H282a50.15 50.15 0 0 1-50-50V562a50.15 50.15 0 0 1 50-50h460a50.15 50.15 0 0 1 50 50z"></PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Fill="#79f3ff">
+            <Path.Data>
+                <PathGeometry Figures="M412 620a36.11 36.11 0 0 0-36 36v88a36.11 36.11 0 0 0 36 36 36.11 36.11 0 0 0 36-36v-88a36.11 36.11 0 0 0-36-36zM612 620a36.11 36.11 0 0 0-36 36v88a36.11 36.11 0 0 0 36 36 36.11 36.11 0 0 0 36-36v-88a36.11 36.11 0 0 0-36-36z"></PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
+
+</ResourceDictionary>
